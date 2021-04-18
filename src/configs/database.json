@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "dev",
+    "password": "dev",
+    "database": "twitter",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": 5432,
+    "define": {
+      "timestamps": true,
+      "undersored": true,
+      "deletedAt": true,
+      "freezeTableName": true
+    }
+  }
+}
