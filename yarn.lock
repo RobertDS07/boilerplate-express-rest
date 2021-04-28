@@ -93,6 +93,13 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
+"@types/express-validator@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/express-validator/-/express-validator-3.0.0.tgz#e6f3cab842e5ae376a1cfa11295202ec380b68d1"
+  integrity sha512-LusnB0YhTXpBT25PXyGPQlK7leE1e41Vezq1hHEUwjfkopM1Pkv2X2Ppxqh9c+w/HZ6Udzki8AJotKNjDTGdkQ==
+  dependencies:
+    express-validator "*"
+
 "@types/express@^4.17.11":
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/@types/express/-/express-4.17.11.tgz#debe3caa6f8e5fcda96b47bd54e2f40c4ee59545"
@@ -780,6 +787,14 @@ event-emitter@^0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
+express-validator@*:
+  version "6.10.1"
+  resolved "https://registry.yarnpkg.com/express-validator/-/express-validator-6.10.1.tgz#0ec71a2e472d85158fede76f0199054034b06e7c"
+  integrity sha512-joYSJdkUyKMZ2gAUvyQNmqJ7x1vhrC/IHCKWauhKfoXNF83j65KnlqEEXXynBnJRd0QrNZ/aXw9uIhS6ptG0Cg==
+  dependencies:
+    lodash "^4.17.21"
+    validator "^13.5.2"
+
 express-validator@^6.10.0:
   version "6.10.0"
   resolved "https://registry.yarnpkg.com/express-validator/-/express-validator-6.10.0.tgz#66f70f73d04fb55c227401c75fe3713879c9cb70"
@@ -1207,7 +1222,7 @@ locate-path@^3.0.0:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
 
-lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.5:
+lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.5:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
