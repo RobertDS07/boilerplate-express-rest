@@ -12,8 +12,8 @@ class BaseClassRoutes {
 
     constructor(
         path: string,
-        controller: BaseController,
         middlewares: BaseClassMiddlewares = new BaseClassMiddlewares(),
+        controller: BaseController,
     ) {
         this.routes = Router()
 

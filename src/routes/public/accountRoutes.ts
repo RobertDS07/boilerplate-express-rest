@@ -5,7 +5,7 @@ import BaseClassRoutes from '../baseClassRoutes'
 
 class AccountRoutes extends BaseClassRoutes {
     constructor() {
-        super('/account', accountController, accountMiddlewares)
+        super('/account', accountMiddlewares, accountController)
     }
 }
 
