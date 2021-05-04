@@ -10,7 +10,12 @@
       "timestamps": true,
       "undersored": true,
       "deletedAt": true,
-      "freezeTableName": true
+      "freezeTableName": true,
+      "paranoid": true
     }
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "__tests__/database.sqlite"
   }
 }
