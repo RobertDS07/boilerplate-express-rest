@@ -16,7 +16,7 @@ describe('User model test', () => {
             password: faker.internet.password(),
             username: faker.internet.userName(),
         }
-
+        //TODO: DELETAR O PASSWORD DO RETURN, CREIO QUE O defaultScope NÃO ESTEJA FUNCIONANDO POR ERRO NA CONFIG DO SEQUELIZE, TESTAR CRIAR USER POR REQUISIÇÃO PARA VER SE TAMBÉM VIRÁ O PASSWORD
         const user = await Users.create(dataToCreateUser)
 
         console.log(user)
