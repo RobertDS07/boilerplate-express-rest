@@ -15,10 +15,6 @@ export interface IUser extends Model, ITimestamps {
 const Users = sequelize.define<IUser>(
     'users',
     {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-        },
         email: {
             type: DataTypes.TEXT,
             unique: true,
@@ -51,9 +47,6 @@ const Users = sequelize.define<IUser>(
                     user.password = await bcrypt.hash(user.password, 10)
                 }
             },
-        },
-        defaultScope: {
-            attributes: { exclude: ['password'] },
         },
     },
 )
