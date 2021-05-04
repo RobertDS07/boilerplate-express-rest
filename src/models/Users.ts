@@ -1,18 +1,18 @@
-import { DataTypes, Model } from 'sequelize/types'
+import { DataTypes, Model } from 'sequelize'
 import bcrypt from 'bcryptjs'
 
 import ITimestamps from '../interfaces/timestamps'
 
 import sequelize from '../sequelize'
 
-interface IUsers extends Model, ITimestamps {
+export interface IUser extends Model, ITimestamps {
     id: number
     email: string
     username: string
-    password: string
+    password?: string
 }
 
-const Users = sequelize.define<IUsers>(
+const Users = sequelize.define<IUser>(
     'users',
     {
         id: {
@@ -46,11 +46,14 @@ const Users = sequelize.define<IUsers>(
     },
     {
         hooks: {
-            beforeSave: async (user: IUsers) => {
+            beforeSave: async (user: IUser) => {
                 if (user.password) {
                     user.password = await bcrypt.hash(user.password, 10)
                 }
             },
+        },
+        defaultScope: {
+            attributes: { exclude: ['password'] },
         },
     },
 )
