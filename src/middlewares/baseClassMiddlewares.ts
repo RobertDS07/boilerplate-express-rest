@@ -1,35 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { NextFunction, Request, Response } from 'express'
+import { NextFunction, Request, RequestHandler, Response } from 'express'
 
 class BaseClassMiddlewares {
-    all(req: Request, res: Response): void {
-        return
-    }
+    all: RequestHandler[] = []
 
-    get(req: Request, res: Response, next: NextFunction): void {
-        this.all(req, res)
-        next()
-    }
+    get: RequestHandler[] = []
 
-    find(req: Request, res: Response, next: NextFunction): void {
-        this.all(req, res)
-        next()
-    }
+    find: RequestHandler[] = []
 
-    post(req: Request, res: Response, next: NextFunction): void {
-        this.all(req, res)
-        next()
-    }
+    post: RequestHandler[] = []
 
-    patch(req: Request, res: Response, next: NextFunction): void {
-        this.all(req, res)
-        next()
-    }
+    patch: RequestHandler[] = []
 
-    delete(req: Request, res: Response, next: NextFunction): void {
-        this.all(req, res)
-        next()
-    }
+    delete: RequestHandler[] = []
 }
 
 export default BaseClassMiddlewares

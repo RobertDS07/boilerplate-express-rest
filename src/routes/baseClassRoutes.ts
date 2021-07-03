@@ -25,7 +25,8 @@ class BaseClassRoutes {
     get(): void {
         this.routes.get(
             `${this.path}/:id`,
-            this.middlewares.get,
+            ...this.middlewares.all,
+            ...this.middlewares.get,
             this.controller.get,
         )
     }
@@ -33,7 +34,8 @@ class BaseClassRoutes {
     find(): void {
         this.routes.get(
             `${this.path}`,
-            this.middlewares.find,
+            ...this.middlewares.all,
+            ...this.middlewares.find,
             this.controller.find,
         )
     }
@@ -41,7 +43,8 @@ class BaseClassRoutes {
     post(): void {
         this.routes.post(
             `${this.path}`,
-            this.middlewares.post,
+            ...this.middlewares.all,
+            ...this.middlewares.post,
             this.controller.post,
         )
     }
@@ -49,7 +52,8 @@ class BaseClassRoutes {
     patch(): void {
         this.routes.patch(
             `${this.path}/:id`,
-            this.middlewares.patch,
+            ...this.middlewares.all,
+            ...this.middlewares.patch,
             this.controller.patch,
         )
     }
@@ -57,7 +61,8 @@ class BaseClassRoutes {
     delete(): void {
         this.routes.delete(
             `${this.path}/:id`,
-            this.middlewares.delete,
+            ...this.middlewares.all,
+            ...this.middlewares.delete,
             this.controller.delete,
         )
     }
