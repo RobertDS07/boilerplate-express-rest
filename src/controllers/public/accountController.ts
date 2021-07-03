@@ -4,7 +4,7 @@ import BaseController from '../baseController'
 
 class AccountController extends BaseController {
     async post(req: Request, res: Response): Promise<void> {
-        res.send('test')
+        res.json(req.headers.oi).send()
     }
 }
 
