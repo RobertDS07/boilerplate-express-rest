@@ -1,9 +1,16 @@
-import { response } from 'express'
+class CreateError extends Error {
+    message: string
+    code?: number
 
-//TODO: TESTAR SE FUNCIONA
+    constructor(msg: string) {
+        super()
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const createError = (status: number, msg: string): any =>
-    response.status(status).send({ errors: [{ msg }] })
+        this.message = msg
+    }
 
-export default createError
+    businessException = (): void => {
+        this.code = 422
+    }
+}
+
+export default CreateError
