@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize'
-import bcrypt from 'bcryptjs'
+// import bcrypt from 'bcryptjs'
 
 import ITimestamps from '../interfaces/timestamps'
 
@@ -19,11 +19,11 @@ const Users = sequelize.define<IUser>(
             type: DataTypes.TEXT,
             unique: true,
             allowNull: false,
-            validate: {
-                isEmail: {
-                    msg: 'Invalid email',
-                },
-            },
+            // validate: {
+            //     isEmail: {
+            //         msg: 'Invalid email',
+            //     },
+            // },
         },
         username: {
             type: DataTypes.TEXT,
@@ -32,23 +32,23 @@ const Users = sequelize.define<IUser>(
         password: {
             type: DataTypes.TEXT,
             allowNull: false,
-            validate: {
-                len: {
-                    msg: 'Weak password',
-                    args: [4, 100],
-                },
-            },
+            // validate: {
+            //     len: {
+            //         msg: 'Weak password',
+            //         args: [4, 100],
+            //     },
+            // },
         },
     },
-    {
-        hooks: {
-            beforeSave: async (user: IUser) => {
-                if (user.password) {
-                    user.password = await bcrypt.hash(user.password, 10)
-                }
-            },
-        },
-    },
+    // {
+    //     hooks: {
+    //         beforeSave: async (user: IUser) => {
+    //             if (user.password) {
+    //                 user.password = await bcrypt.hash(user.password, 10)
+    //             }
+    //         },
+    //     },
+    // },
 )
 
 export default Users
