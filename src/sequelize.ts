@@ -6,7 +6,7 @@
 import { Sequelize } from 'sequelize'
 // const basename = path.basename(__filename)
 const env = process.env.NODE_ENV || 'development'
-const config = require(__dirname + '/../configs/database.json')[env]
+const config = require(__dirname + '/../configs/database.js')[env]
 
 // interface db {
 //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
