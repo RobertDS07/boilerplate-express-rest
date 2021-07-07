@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
-import BaseController from '../controllers/baseController'
-import BaseClassMiddlewares from '../middlewares/baseClassMiddlewares'
+import BaseController from './baseController'
+import BaseClassMiddlewares from './baseClassMiddlewares'
 
 class BaseClassRoutes {
     routes: Router

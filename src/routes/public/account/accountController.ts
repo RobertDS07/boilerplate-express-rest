@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import BaseController from '../baseController'
+import BaseController from '../../baseController'
 
 class AccountController extends BaseController {
     async post(req: Request, res: Response): Promise<void> {

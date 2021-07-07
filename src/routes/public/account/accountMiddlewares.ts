@@ -1,6 +1,6 @@
 import { NextFunction, Request, RequestHandler, Response } from 'express'
 
-import BaseClassMiddlewares from '../baseClassMiddlewares'
+import BaseClassMiddlewares from '../../baseClassMiddlewares'
 
 class AccountMiddlewares extends BaseClassMiddlewares {
     all: RequestHandler[] = [
