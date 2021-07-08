@@ -12,43 +12,20 @@ export interface IUser extends Model, ITimestamps {
     password?: string
 }
 
-const Users = sequelize.define<IUser>(
-    'users',
-    {
-        email: {
-            type: DataTypes.TEXT,
-            unique: true,
-            allowNull: false,
-            // validate: {
-            //     isEmail: {
-            //         msg: 'Invalid email',
-            //     },
-            // },
-        },
-        username: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-        },
-        password: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            // validate: {
-            //     len: {
-            //         msg: 'Weak password',
-            //         args: [4, 100],
-            //     },
-            // },
-        },
+const Users = sequelize.define<IUser>('users', {
+    email: {
+        type: DataTypes.TEXT,
+        unique: true,
+        allowNull: false,
     },
-    // {
-    //     hooks: {
-    //         beforeSave: async (user: IUser) => {
-    //             if (user.password) {
-    //                 user.password = await bcrypt.hash(user.password, 10)
-    //             }
-    //         },
-    //     },
-    // },
-)
+    username: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    password: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+})
 
 export default Users
