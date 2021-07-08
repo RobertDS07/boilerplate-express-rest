@@ -15,7 +15,17 @@
             "protocol": "inspector",
             "outFiles": [
                 "${workspaceFolder}/dist/**/*.js"
-            ]
+            ],
+            "runtimeArgs": [
+                "-r",
+                "${workspaceFolder}/node_modules/ts-node/register",
+                "-r",
+                "${workspaceFolder}/node_modules/tsconfig-paths/register"
+            ],
+            "env": {
+                "NODE_ENV": "development",
+                "TS_NODE_PROJECT": "${workspaceFolder}/tsconfig.json"
+            },
         }
     ]
 }
