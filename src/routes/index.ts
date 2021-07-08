@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import accountRoutes from './public/account/accountRoutes'
+import accountRoutes from './public/account/accountsRoutes'
 
 class Routes {
     routes: Router
