@@ -3,13 +3,15 @@ class CreateError extends Error {
     code?: number
 
     constructor(msg: string) {
-        super()
+        super(msg)
 
         this.message = msg
     }
 
-    businessException = (): void => {
+    businessException = (): this => {
         this.code = 422
+
+        return this
     }
 }
 
