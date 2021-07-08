@@ -24,22 +24,28 @@ class UsersRepository {
         username,
     }: IPropsCreateUser): Promise<IUser> => {
         const isEmail = verifyEmail(email)
+        const weakPassword = password.length < 4
 
-        if (!isEmail) {
-            //TODO: VERIFICAR SE ESSE TIPO DE ERRO ESTÁ FUNCIONANDO
-            throw new CreateError('Email inválido').businessException()
-        }
+        if (weakPassword)
+            throw new CreateError('Weak Password').businessException()
+
+        if (!isEmail) throw new CreateError('Invalid Email').businessException()
 
         const [newUser, isNew] = await this.model.findOrCreate({
             where: { email },
             defaults: {
-                email,
                 password,
                 username,
             },
         })
 
-        const userWithoutPassword = { ...newUser, password: undefined } as IUser
+        if (!isNew) throw new CreateError('Email in use').businessException()
+
+        //TODO: ENCONTRAR UM MODO DE NÃO PRECISAR UTILIZA O .toJSON()
+        const userWithoutPassword = {
+            ...newUser.toJSON(),
+            password: undefined,
+        } as IUser
 
         return userWithoutPassword
     }
