@@ -2,7 +2,7 @@ import { IUser } from 'models/Users'
 
 import UsersRepository, { IPropsCreateUser } from 'repositories/UsersRepository'
 
-class AccountService {
+class AccountsService {
     createAccount = async ({
         email,
         password,
@@ -14,4 +14,4 @@ class AccountService {
     }
 }
 
-export default new AccountService()
+export default new AccountsService()

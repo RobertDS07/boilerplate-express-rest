@@ -2,7 +2,7 @@ import { NextFunction, Request, RequestHandler, Response } from 'express'
 
 import BaseClassMiddlewares from '../../baseClassMiddlewares'
 
-class AccountMiddlewares extends BaseClassMiddlewares {
+class AccountsMiddlewares extends BaseClassMiddlewares {
     all: RequestHandler[] = [
         (req: Request, res: Response, next: NextFunction): void => {
             req.headers.oi = 'true'
@@ -11,4 +11,4 @@ class AccountMiddlewares extends BaseClassMiddlewares {
     ]
 }
 
-export default new AccountMiddlewares()
+export default new AccountsMiddlewares()
