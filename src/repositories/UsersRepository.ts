@@ -1,9 +1,11 @@
+import bcrypt from 'bcryptjs'
+
 import { ModelCtor } from 'sequelize/types'
 
 import Users, { IUser } from 'models/Users'
 
 import verifyEmail from 'utils/verifyEmail'
-import CreateError from 'utils/createError'
+import CustomError from 'utils/customError'
 
 export interface IPropsCreateUser {
     email: string
@@ -27,23 +29,25 @@ class UsersRepository {
         const weakPassword = password.length < 4
 
         if (weakPassword)
-            throw new CreateError('Weak Password').businessException()
+            throw new CustomError('Weak Password').businessException()
 
-        if (!isEmail) throw new CreateError('Invalid Email').businessException()
+        if (!isEmail) throw new CustomError('Invalid Email').businessException()
+
+        const hashedPassword = await bcrypt.hash(password, 10)
 
         const [newUser, isNew] = await this.model.findOrCreate({
             where: { email },
             defaults: {
-                password,
+                password: hashedPassword,
                 username,
             },
         })
 
-        if (!isNew) throw new CreateError('Email in use').businessException()
+        if (!isNew) throw new CustomError('Email in use').businessException()
 
         //TODO: ENCONTRAR UM MODO DE NÃO PRECISAR UTILIZA O .toJSON()
         const userWithoutPassword = {
-            ...newUser.toJSON(),
+            ...newUser,
             password: undefined,
         } as IUser
 
