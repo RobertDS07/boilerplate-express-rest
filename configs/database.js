@@ -6,6 +6,10 @@ module.exports = {
         host: 'localhost',
         dialect: 'postgres',
         port: 5432,
+        query: {
+            raw: true,
+            nest: true,
+        },
         define: {
             timestamps: true,
             underscored: true,
@@ -25,6 +29,10 @@ module.exports = {
         host: process.env.DB_HOST,
         dialect: 'postgres',
         port: 5432,
+        query: {
+            raw: true,
+            nest: true,
+        },
         define: {
             timestamps: true,
             underscored: true,
