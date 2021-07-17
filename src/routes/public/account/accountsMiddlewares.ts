@@ -1,13 +1,19 @@
-import { NextFunction, Request, RequestHandler, Response } from 'express'
+import { check } from 'express-validator'
+
+import { RequestHandler } from 'express'
 
 import BaseClassMiddlewares from '../../baseClassMiddlewares'
 
 class AccountsMiddlewares extends BaseClassMiddlewares {
-    all: RequestHandler[] = [
-        (req: Request, res: Response, next: NextFunction): void => {
-            req.headers.oi = 'true'
-            next()
-        },
+    post: RequestHandler[] = [
+        check('email').normalizeEmail().isEmail().withMessage('Invalid Email'),
+        check('password')
+            .exists({ checkNull: true })
+            .withMessage('Insert password field'),
+        check('username')
+            .trim()
+            .exists({ checkNull: true })
+            .withMessage('Insert username field'),
     ]
 }
 
