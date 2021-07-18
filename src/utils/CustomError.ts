@@ -1,5 +1,5 @@
 interface IError {
-    message: string
+    msg: string
 }
 
 export interface IErrorBody {
@@ -18,7 +18,7 @@ class CustomError extends Error {
 
     get body(): IErrorBody {
         return {
-            errors: [{ message: this.message }],
+            errors: [{ msg: this.message }],
         }
     }
 
