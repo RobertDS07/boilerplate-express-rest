@@ -1,5 +1,4 @@
 import { DataTypes, Model } from 'sequelize'
-// import bcrypt from 'bcryptjs'
 
 import ITimestamps from '../interfaces/timestamps'
 
