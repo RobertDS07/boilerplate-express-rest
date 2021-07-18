@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import bcrypt from 'bcryptjs'
 
 import { ModelCtor } from 'sequelize/types'
@@ -5,7 +6,7 @@ import { ModelCtor } from 'sequelize/types'
 import Users, { IUser } from 'models/Users'
 
 import verifyEmail from 'utils/verifyEmail'
-import CustomError from 'utils/customError'
+import CustomError from 'utils/CustomError'
 
 export interface IPropsCreateUser {
     email: string
@@ -47,7 +48,7 @@ class UsersRepository {
 
         //TODO: ENCONTRAR UM MODO DE NÃO PRECISAR UTILIZA O .toJSON()
         const userWithoutPassword = {
-            ...newUser,
+            ...newUser.toJSON(),
             password: undefined,
         } as IUser
 
