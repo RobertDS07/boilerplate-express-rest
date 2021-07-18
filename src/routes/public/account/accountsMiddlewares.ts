@@ -4,16 +4,24 @@ import { RequestHandler } from 'express'
 
 import BaseClassMiddlewares from '../../baseClassMiddlewares'
 
+import verifyErrorsExpressValidator from 'middlewares/verifyErrorsExpressValidator'
+
 class AccountsMiddlewares extends BaseClassMiddlewares {
     post: RequestHandler[] = [
-        check('email').normalizeEmail().isEmail().withMessage('Invalid Email'),
+        check('email')
+            .normalizeEmail()
+            .isEmail()
+            .withMessage('Invalid Email')
+            .exists({ checkFalsy: true }),
         check('password')
-            .exists({ checkNull: true })
-            .withMessage('Insert password field'),
+            .trim()
+            .exists({ checkFalsy: true })
+            .withMessage('Required password'),
         check('username')
             .trim()
-            .exists({ checkNull: true })
-            .withMessage('Insert username field'),
+            .exists({ checkFalsy: true })
+            .withMessage('Required username'),
+        verifyErrorsExpressValidator,
     ]
 }
 
