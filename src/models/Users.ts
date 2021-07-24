@@ -11,7 +11,7 @@ export interface IUser extends Model, ITimestamps {
     password?: string
 }
 
-const Users = sequelize.define<IUser>('users', {
+const Users = sequelize.define<IUser>(`users`, {
     email: {
         type: DataTypes.TEXT,
         unique: true,

@@ -1,10 +1,10 @@
 module.exports = {
     development: {
-        username: 'dev',
-        password: 'dev',
-        database: 'twitter',
-        host: 'localhost',
-        dialect: 'postgres',
+        username: `dev`,
+        password: `dev`,
+        database: `twitter`,
+        host: `localhost`,
+        dialect: `postgres`,
         port: 5432,
         query: {
             raw: true,
@@ -19,15 +19,16 @@ module.exports = {
         },
     },
     test: {
-        dialect: 'sqlite',
-        storage: '__tests__/database.sqlite',
+        dialect: `sqlite`,
+        storage: `__tests__/database.sqlite`,
+        logging: () => null,
     },
     production: {
         username: process.env.DB_USERNAME,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DATABASE,
         host: process.env.DB_HOST,
-        dialect: 'postgres',
+        dialect: `postgres`,
         port: 5432,
         query: {
             raw: true,

@@ -3,8 +3,8 @@
 
 import { Sequelize } from 'sequelize'
 
-const env = process.env.NODE_ENV || 'development'
-const config = require(__dirname + '/../configs/database.js')[env]
+const env = process.env.NODE_ENV || `development`
+const config = require(__dirname + `/../configs/database.js`)[env]
 
 const sequelize = new Sequelize(
     config.database,
