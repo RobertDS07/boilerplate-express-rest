@@ -27,6 +27,12 @@ class CustomError extends Error {
 
         return this
     }
+
+    AccessDenied = (): this => {
+        this.code = 401
+
+        return this
+    }
 }
 
 export default CustomError
