@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 
 import BaseController from '../../baseController'
 
-import accountService from 'services/accountsService'
+import accountsService from 'services/accountsService'
 import tokenService from 'services/tokenService'
 import handleError from 'utils/handleError'
 
@@ -11,7 +11,7 @@ class AccountsController extends BaseController {
         try {
             const { email, password, username } = req.body
 
-            const user = await accountService.createAccount({
+            const user = await accountsService.createAccount({
                 email,
                 password,
                 username,

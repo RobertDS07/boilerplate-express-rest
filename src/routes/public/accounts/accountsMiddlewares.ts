@@ -8,19 +8,18 @@ import verifyErrorsExpressValidator from 'middlewares/verifyErrorsExpressValidat
 
 class AccountsMiddlewares extends BaseClassMiddlewares {
     post: RequestHandler[] = [
-        check('email')
-            .normalizeEmail()
+        check(`email`)
             .isEmail()
-            .withMessage('Invalid Email')
+            .withMessage(`Invalid Email`)
             .exists({ checkFalsy: true }),
-        check('password')
+        check(`password`)
             .trim()
             .exists({ checkFalsy: true })
-            .withMessage('Required password'),
-        check('username')
+            .withMessage(`Required password`),
+        check(`username`)
             .trim()
             .exists({ checkFalsy: true })
-            .withMessage('Required username'),
+            .withMessage(`Required username`),
         verifyErrorsExpressValidator,
     ]
 }
