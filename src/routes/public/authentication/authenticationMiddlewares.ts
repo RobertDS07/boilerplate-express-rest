@@ -9,7 +9,7 @@ import verifyErrorsExpressValidator from 'middlewares/verifyErrorsExpressValidat
 class AuthenticationMiddlewares extends BaseClassMiddlewares {
     post: RequestHandler[] = [
         check(`email`)
-            .normalizeEmail()
+            .trim()
             .isEmail()
             .withMessage(`Invalid Email`)
             .exists({ checkFalsy: true }),
