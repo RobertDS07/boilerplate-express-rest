@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import faker from 'faker'
 
 import bcrypt from 'bcryptjs'
@@ -8,12 +9,12 @@ import UsersRepository from '../../../src/repositories/UsersRepository'
 
 import UsersModel, { IUser } from '../../../src/models/Users'
 
-describe('UsersRepository tests', () => {
+describe(`UsersRepository tests`, () => {
     beforeAll(async () => {
         await sequelize.sync({ force: true })
     })
 
-    it('Should create a user and doesnt return password', async () => {
+    it(`Should create a user and doesnt return password`, async () => {
         const dataToCreateUser = {
             email: faker.internet.email(),
             password: faker.internet.password(),
@@ -29,7 +30,7 @@ describe('UsersRepository tests', () => {
         expect(userHasId && userDoesntPassword).toBeTruthy()
     })
 
-    it('Should hash password', async () => {
+    it(`Should hash password`, async () => {
         const dataToCreateUser = {
             email: faker.internet.email(),
             password: faker.internet.password(),
@@ -51,7 +52,7 @@ describe('UsersRepository tests', () => {
         expect(passwordIsHashed && passwordIsValid).toBeTruthy()
     })
 
-    it('Should return a error for invalid email', async () => {
+    it(`Should return a error for invalid email`, async () => {
         try {
             const dataToCreateUser = {
                 email: faker.internet.email(),
@@ -59,19 +60,33 @@ describe('UsersRepository tests', () => {
                 username: faker.internet.userName(),
             }
 
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const user = await UsersRepository.create(dataToCreateUser)
 
             // The function shouldn't arrive here
             return false
         } catch (e) {
-            const codeIsUnprocessable = e.code === 422
+            const messageQuoteEmail = e.message.toLowerCase().includes(`email`)
 
-            const messageQuoteEmail = e.message.toLowerCase().includes('email')
-
-            expect(codeIsUnprocessable && messageQuoteEmail).toBeTruthy()
+            expect(messageQuoteEmail).toBeTruthy()
         }
     })
 
-    it('Should create a user and doesnt return the password', async () => true)
+    it(`Should return a error for weak password`, async () => {
+        try {
+            const dataToCreateUser = {
+                email: faker.internet.email(),
+                password: `123`,
+                username: faker.internet.userName(),
+            }
+
+            const user = await UsersRepository.create(dataToCreateUser)
+
+            // The function shouldn't arrive here
+            return false
+        } catch (e) {
+            const messageQuoteWeak = e.message.toLowerCase().includes(`weak`)
+
+            expect(messageQuoteWeak).toBeTruthy()
+        }
+    })
 })
