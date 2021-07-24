@@ -1,13 +1,13 @@
 import { IUser } from 'models/Users'
 
-import UsersRepository, { IPropsCreateUser } from 'repositories/UsersRepository'
+import UsersRepository, { TPropsCreateUser } from 'repositories/UsersRepository'
 
 class AccountsService {
     createAccount = async ({
         email,
         password,
         username,
-    }: IPropsCreateUser): Promise<IUser> => {
+    }: TPropsCreateUser): Promise<IUser> => {
         const user = await UsersRepository.create({ email, password, username })
 
         return user

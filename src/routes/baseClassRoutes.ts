@@ -12,7 +12,7 @@ class BaseClassRoutes {
 
     constructor(
         path: string,
-        middlewares: BaseClassMiddlewares = new BaseClassMiddlewares(),
+        middlewares: BaseClassMiddlewares,
         controller: BaseController,
     ) {
         this.routes = Router()
@@ -67,12 +67,16 @@ class BaseClassRoutes {
         )
     }
 
-    createRoutes(): Router {
+    private initRoutes(): void {
         this.get()
         this.find()
         this.post()
         this.patch()
         this.delete()
+    }
+
+    createRoutes(): Router {
+        this.initRoutes()
 
         return this.routes
     }
