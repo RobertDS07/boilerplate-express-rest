@@ -14,7 +14,6 @@ class AuthenticationMiddlewares extends BaseClassMiddlewares {
             .withMessage(`Invalid Email`)
             .exists({ checkFalsy: true }),
         check(`password`)
-            .trim()
             .exists({ checkFalsy: true })
             .withMessage(`Required password`),
         verifyErrorsExpressValidator,
