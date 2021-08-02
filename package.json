@@ -13,7 +13,7 @@
     "build": "tsc",
     "prestart": "build",
     "start": "node dist/",
-    "test": "set NODE_ENV=test&&yarn jest"
+    "test": "yarn jest"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
