@@ -11,11 +11,12 @@
     "forceConsistentCasingInFileNames": true, 
     "baseUrl": ".", 
     "paths": {
-      "models/*":["src/models/*"],
-      "repositories/*":["src/repositories/*"],
-      "services/*":["src/services/*"],
       "utils/*":["src/utils/*"],
-      "middlewares/*":["src/middlewares/*"]
+      "models/*":["src/models/*"],
+      "errors/*":["src/errors/*"],
+      "services/*":["src/services/*"],
+      "middlewares/*":["src/middlewares/*"],
+      "repositories/*":["src/repositories/*"]
     }
   },
   "exclude": [
