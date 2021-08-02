@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
-import accountRoutes from './public/accounts/accountsRoutes'
-import authenticationRoutes from './public/authentication/authenticationRoutes'
+import accountRoutes from './public/accounts'
+import authenticationRoutes from './public/authentication'
 
 class Routes {
     private routes: Router
