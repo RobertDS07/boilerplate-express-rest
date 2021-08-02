@@ -5,7 +5,7 @@ import TokenService from '../../../src/services/tokenService'
 import createUser from '../../utils/createUser'
 
 describe(`tokenService tests`, () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
         await sequelize.sync({ force: true })
     })
 

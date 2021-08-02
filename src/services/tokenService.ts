@@ -2,7 +2,7 @@
 import jwt, { JwtPayload } from 'jsonwebtoken'
 
 import { IUser } from 'models/Users'
-import CustomError from 'utils/CustomError'
+import CustomError from 'errors/CustomError'
 
 const { secret, expiresIn } = require(`../../configs/token.js`)
 

@@ -5,7 +5,7 @@ import sequelize from '../../../src/sequelize'
 import UsersRepository from '../../../src/repositories/UsersRepository'
 
 describe(`accountService tests`, () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
         await sequelize.sync({ force: true })
     })
 
