@@ -21,4 +21,18 @@ describe(`tokenService tests`, () => {
 
         expect(tokenIsString && tokenHasntPassword).toBeTruthy()
     })
+
+    it(`Should return a error for invalid token`, async () => {
+        try {
+            TokenService.decodeToken(`Invalid token`)
+
+            return true
+        } catch (e) {
+            const messageQuoteInvalid = e.message
+                .toLowerCase()
+                .includes(`invalid`)
+
+            expect(messageQuoteInvalid).toBeTruthy()
+        }
+    })
 })
