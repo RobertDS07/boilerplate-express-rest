@@ -1,16 +1,12 @@
-import AuthenticationController from './authenticationController'
-import AuthenticationMiddlewares from './authenticationMiddlewares'
+import CheckController from './checkController'
+import CheckMiddlewares from './checkMiddlewares'
 
 import BaseClassRoutes from '../../baseClassRoutes'
 
-class AuthenticationRoutes extends BaseClassRoutes {
+class CheckRoutes extends BaseClassRoutes {
     constructor() {
-        super(
-            `/authentication`,
-            AuthenticationMiddlewares,
-            AuthenticationController,
-        )
+        super(`/check`, CheckMiddlewares, CheckController)
     }
 }
 
-export default new AuthenticationRoutes().createRoutes()
+export default new CheckRoutes().createRoutes()

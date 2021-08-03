@@ -22,7 +22,8 @@ class TokenService {
     decodeToken = (token: string): IDecodedToken => {
         const decodedToken = jwt.decode(token) as IDecodedToken | null
 
-        if (!decodedToken) throw new CustomError(`Invalid token`).AccessDenied()
+        if (!decodedToken)
+            throw new CustomError(`Invalid Credentials`).AccessDenied()
 
         if (decodedToken && decodedToken.password) delete decodedToken.password
 
